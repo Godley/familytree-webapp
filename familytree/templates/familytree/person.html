@@ -10,20 +10,28 @@
 <body>
 <table>
     <tr>
-        <td>Name</td><td>{{name}}</td>
+        <td>Name</td><td>{{person.name}}</td>
     </tr>
     <tr>
-        <td>Mother</td><td><a href="/{{mother.pk}}">{{mother.name}}</a></td>
+        <td>Mother</td><td><a href="/{{person.mother.pk}}">{{person.mother.name}}</a></td>
     </tr>
     <tr>
-        <td>Father</td><td><a href="/{{father.pk}}">{{father.name}}</a></td>
+        <td>Father</td><td><a href="/{{person.father.pk}}">{{person.father.name}}</a></td>
     </tr>
     <tr>
         <td>Children</td><td>
-        {% for child in children %}
+        {% for child in person.children %}
             <a href="/{{child.pk}}">{{child.name}}</a>
         {% endfor %}
     </td>
+    </tr>
+    <tr>
+        <td>Siblings</td>
+        <td>
+            {% for child in person.siblings %}
+                <a href="/{{child.pk}}">{{child.name}}</a>
+            {% endfor %}
+        </td>
     </tr>
 </table>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

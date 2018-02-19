@@ -6,14 +6,9 @@ import json
 # Create your views here.
 def identify(request, user_id):
     person = FamilyMember.objects.get(pk=user_id)
-    children = []
-    children.extend(person.mothered.all())
-    children.extend(person.fathered.all())
+
     context = {
-        "name": person.name,
-        "mother": person.mother,
-        "father": person.father,
-        "children": children
+        "person": person
     }
     return render(request, "familytree/person.html", context)
 
