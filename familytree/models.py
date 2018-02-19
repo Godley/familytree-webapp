@@ -18,9 +18,13 @@ class FamilyMember(models.Model):
 
     @property
     def siblings(self):
-        father_children = self.father.children
-        mother_children = self.mother.children
-        siblings = set(father_children)
-        siblings = siblings.intersection(set(mother_children))
-        siblings.remove(self)
-        return siblings
+        try:
+            father_children = self.father.children
+            mother_children = self.mother.children
+        except AttributeError:
+            return set()
+        else:
+            siblings = set(father_children)
+            siblings = siblings.intersection(set(mother_children))
+            siblings.remove(self)
+            return siblings
