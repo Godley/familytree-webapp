@@ -24,7 +24,7 @@
     <tr>
         <td>Children</td><td>
         {% for child in person.children %}
-            <a href="/{{child.pk}}">{{child.name}}</a>
+            <a href="/{{child.pk}}">{{child.name}}</a><br>
         {% endfor %}
     </td>
     </tr>
@@ -32,7 +32,7 @@
         <td>Siblings</td>
         <td>
             {% for child in person.siblings %}
-                <a href="/{{child.pk}}">{{child.name}}</a>
+                <a href="/{{child.pk}}">{{child.name}}</a><br>
             {% endfor %}
         </td>
     </tr>
