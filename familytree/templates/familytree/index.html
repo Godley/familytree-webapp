@@ -1,0 +1,5 @@
+<table>
+    {% for person in people %}
+        <tr><td><a href="/{{person.pk}}">{{person.name}}</a></td></tr>
+    {% endfor %}
+</table>
